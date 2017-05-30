@@ -3,6 +3,7 @@ package com.example.alfredo.senapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +13,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity
+
+
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    MaterialSearchView searchView;
+    ListView lstView;
+    String[] lstSource = {
+
+            "Deber",
+            "Hola",
+            "Luego",
+            "Chao",
+            "Final"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +69,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,9 +91,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        FragmentManager fragmentManager =getSupportFragmentManager();
+
         if (id == R.id.nav_diccionario) {
             // Handle the camera action
-        } else if (id == R.id.nav_diccionario) {
+            fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentDiccionario()).commit();
+
+        } else if (id == R.id.nav_aprender) {
+            fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
 
         } else if (id == R.id.nav_salir) {
 
@@ -90,6 +106,14 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    //buscar dentro del diccionario
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 }
