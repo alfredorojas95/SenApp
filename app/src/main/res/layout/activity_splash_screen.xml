@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alfredo.senapp.SplashScreen"
-    android:background="#111FFF">
+    android:background="#FF9643">
 
     <TextView
         android:text="SeñApp"
@@ -17,5 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:textSize="36sp" />
 </RelativeLayout>

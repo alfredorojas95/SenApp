@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_aprender) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
-
         } else if (id == R.id.nav_salir) {
 
         }

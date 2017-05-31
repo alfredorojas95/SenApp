@@ -1,4 +1,5 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,11 +8,112 @@
     <!-- TODO: Update blank fragment layout -->
 
 
+    <ImageButton
+        android:layout_width="200px"
+        android:layout_height="200px"
+        app:srcCompat="@drawable/bike"
+        android:layout_below="@+id/imageButton2"
+        android:layout_alignEnd="@+id/imageButton2"
+        android:layout_marginTop="72dp"
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:id="@+id/imageButton4" />
+
+    <ImageButton
+        android:layout_width="200px"
+        android:layout_height="200px"
+        app:srcCompat="@drawable/family"
+        android:layout_alignTop="@+id/imageButton4"
+        android:layout_alignEnd="@+id/imageButton3"
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:id="@+id/imageButton5" />
+
     <TextView
         android:text="Aprender señas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
-        android:textSize="36sp"
-        android:layout_gravity="center"/>
-</FrameLayout>
+        android:textSize="34sp"
+        android:layout_gravity="top"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+    <ImageButton
+        android:layout_width="200px"
+        android:layout_height="200px"
+        app:srcCompat="@drawable/egg"
+        android:id="@+id/imageButton"
+        android:scaleType="fitXY"
+        android:layout_above="@+id/imageButton3"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:layout_marginBottom="25dp" />
+
+    <ImageButton
+        android:layout_width="200px"
+        android:layout_height="200px"
+        app:srcCompat="@drawable/sun"
+        android:id="@+id/imageButton2"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:layout_alignStart="@+id/textView3" />
+
+    <ImageButton
+        android:layout_width="200px"
+        android:layout_height="200px"
+        app:srcCompat="@drawable/calendar"
+        android:scaleType="fitXY"
+        android:id="@+id/imageButton3"
+        android:layout_alignTop="@+id/imageButton2"
+        android:background="@null"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <TextView
+        android:text="Intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Transporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/imageButton4"
+        android:layout_alignEnd="@+id/imageButton4" />
+
+    <TextView
+        android:text="Familia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/imageButton5"
+        android:layout_alignStart="@+id/textView6" />
+
+    <TextView
+        android:text="Fechas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/imageButton3"
+        android:layout_alignEnd="@+id/imageButton3"
+        android:layout_marginEnd="20dp" />
+
+    <TextView
+        android:text="Tiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="18sp"
+        android:layout_above="@+id/imageButton4"
+        android:layout_alignStart="@+id/textView7" />
+</RelativeLayout>
