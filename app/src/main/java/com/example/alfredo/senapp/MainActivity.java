@@ -1,9 +1,9 @@
 package com.example.alfredo.senapp;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -91,14 +91,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        FragmentManager fragmentManager =getSupportFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
 
         if (id == R.id.nav_diccionario) {
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentDiccionario()).commit();
+            this.setTitle("Diccionario Señas");
 
         } else if (id == R.id.nav_aprender) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
+            this.setTitle("Practicar lengua de señas");
         } else if (id == R.id.nav_salir) {
 
         }

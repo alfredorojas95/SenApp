@@ -4,15 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.alfredo.senapp.FragmentDiccionario">
 
-    <!--
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.alfredo.senapp.ListDiccionario"
-        android:id="@+id/fragment"
-        tools:layout="@layout/list_diccionario"/>
-        -->
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
