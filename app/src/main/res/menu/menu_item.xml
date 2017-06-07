@@ -6,7 +6,6 @@
         android:id="@+id/action_search"
         android:icon="@drawable/lupa"
         android:orderInCategory="100"
-        android:title="Search..."
-
+        android:title="Buscar"
         />
 </menu>

@@ -27,6 +27,7 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
     Diccionario c = new Diccionario();
     ArrayList<Palabra> palabras = c.initPalabras();
     Context context;
+    private Adapter adaptador;
 
     private ListView lista;
     View layout;
@@ -37,7 +38,7 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
         layout = inflater.inflate(R.layout.fragment_fragment_diccionario, container, false);
         context = layout.getContext();
         lista = (ListView) layout.findViewById(R.id.list1);
-        Adapter adaptador = new Adapter(context, palabras);
+        adaptador = new Adapter(context, palabras);
         lista.setAdapter(adaptador);
         lista.setOnItemClickListener(mMessageClickedHandler);
         return layout;
@@ -46,8 +47,9 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
 
     private AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
+            Palabra p = (Palabra)adaptador.getItem(position);
             Intent intent = new Intent(context, ListActivity.class);
-            intent.putExtra("itemPalabraDiccionario", lista.getItemAtPosition(position).toString());
+            intent.putExtra("itemPalabraDiccionario", p);
             startActivity(intent);
         }
     };

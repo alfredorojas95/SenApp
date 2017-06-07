@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
+import estructura.Palabra;
+
 public class ListActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
@@ -18,12 +20,15 @@ public class ListActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar1);
         imageView = (ImageView) findViewById(R.id.imageClick);
+        Palabra p = (Palabra)getIntent().getExtras().getSerializable("itemPalabraDiccionario");
+        mToolbar.setTitle(p.getNombre());
+        imageView.setImageResource(p.getImagen());
 
-        Bundle bundle = getIntent().getExtras();
+        /**Bundle bundle = getIntent().getExtras();
         if(bundle!=null) {
             mToolbar.setTitle(bundle.getString("itemPalabraDiccionario"));
             imageView.setImageDrawable(ContextCompat.getDrawable(ListActivity.this, R.drawable.book));
 
-        }
+        }*/
     }
 }

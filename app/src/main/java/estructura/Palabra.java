@@ -1,10 +1,12 @@
 package estructura;
 
+import java.io.Serializable;
+
 /**
  * Created by wilfr on 05-06-2017.
  */
 
-public class Palabra {
+public class Palabra implements Serializable {
     private int imagen;
     private String nombre;
     private String descripcion;
