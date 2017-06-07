@@ -22,7 +22,7 @@ import estructura.Palabra;
  * Created by wilfr on 05-06-2017.
  */
 
-public class FragmentDiccionario extends Fragment {
+public class FragmentDiccionario extends Fragment implements View.OnClickListener{
 
     Diccionario c = new Diccionario();
     ArrayList<Palabra> palabras = c.initPalabras();
@@ -39,9 +39,23 @@ public class FragmentDiccionario extends Fragment {
         lista = (ListView) layout.findViewById(R.id.list1);
         Adapter adaptador = new Adapter(context, palabras);
         lista.setAdapter(adaptador);
+        lista.setOnItemClickListener(mMessageClickedHandler);
         return layout;
     }
 
+
+    private AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
+            Intent intent = new Intent(context, ListActivity.class);
+            intent.putExtra("itemPalabraDiccionario", lista.getItemAtPosition(position).toString());
+            startActivity(intent);
+        }
+    };
+
+    @Override
+    public void onClick(View v) {
+
+    }
 
 
 }
