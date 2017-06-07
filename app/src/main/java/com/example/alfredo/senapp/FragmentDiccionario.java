@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,9 +29,10 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
     Diccionario c = new Diccionario();
     ArrayList<Palabra> palabras = c.initPalabras();
     Context context;
-    private Adapter adaptador;
+    public static Adapter adaptador;
 
     private ListView lista;
+    private SearchView searchView;
     View layout;
 
     @Nullable
@@ -37,10 +40,29 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         layout = inflater.inflate(R.layout.fragment_fragment_diccionario, container, false);
         context = layout.getContext();
+
+        searchView = (SearchView)layout.findViewById(R.id.barraBusqueda);
         lista = (ListView) layout.findViewById(R.id.list1);
+
+
         adaptador = new Adapter(context, palabras);
         lista.setAdapter(adaptador);
         lista.setOnItemClickListener(mMessageClickedHandler);
+
+
+        //buscador xml searchView
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adaptador.getFilter().filter(newText);
+                return false;
+            }
+        });
         return layout;
     }
 

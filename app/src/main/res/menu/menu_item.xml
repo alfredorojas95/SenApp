@@ -4,8 +4,9 @@
 
     <item
         android:id="@+id/action_search"
+        android:title="Bus:"
         android:icon="@drawable/lupa"
-        android:orderInCategory="100"
-        android:title="Buscar"
-        />
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always"/>
+
 </menu>
