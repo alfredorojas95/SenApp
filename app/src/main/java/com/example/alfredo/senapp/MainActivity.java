@@ -24,14 +24,7 @@ public class MainActivity extends AppCompatActivity
 
     MaterialSearchView searchView;
     ListView lstView;
-    String[] lstSource = {
 
-            "Deber",
-            "Hola",
-            "Luego",
-            "Chao",
-            "Final"
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +89,11 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_diccionario) {
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentDiccionario()).commit();
-            this.setTitle("Diccionario Señas");
+            this.setTitle("Diccionario");
 
         } else if (id == R.id.nav_aprender) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
-            this.setTitle("Practicar lengua de señas");
+            this.setTitle("Practica");
         } else if (id == R.id.nav_salir) {
 
         }
