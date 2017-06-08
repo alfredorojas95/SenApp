@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "953135469392",
+    "firebase_url": "https://senapp-44f1e.firebaseio.com",
+    "project_id": "senapp-44f1e",
+    "storage_bucket": "senapp-44f1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953135469392:android:3ce1fe6f8f565fb7",
+        "android_client_info": {
+          "package_name": "com.example.alfredo.senapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953135469392-f9bhkteclc8ipfmemsjsrfe63eho93t5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alfredo.senapp",
+            "certificate_hash": "841736012bd8baedc15c57787675b462f6dbd879"
+          }
+        },
+        {
+          "client_id": "953135469392-rdb97ea7909a1d4u990bfvgrv130k8ma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGvaeC8hP8LI5yCYB1dIR5Aj89Gvm3D94"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953135469392-rdb97ea7909a1d4u990bfvgrv130k8ma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
