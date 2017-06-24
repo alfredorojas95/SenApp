@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#9C27B0"
+    android:background="#64069f"
     tools:context="com.example.alfredo.senapp.LoginActivity">
 
     <com.google.android.gms.common.SignInButton
