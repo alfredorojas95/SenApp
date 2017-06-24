@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class testQuiz extends AppCompatActivity {
 
-    Pregunta preguntas = new Pregunta();
+    private Cuestionario cuestionario;
 
     private TextView textPregunta;
     private TextView textPuntaje;
@@ -31,6 +31,7 @@ public class testQuiz extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         textPregunta = (TextView)findViewById(R.id.descripcion);
         textPuntaje = (TextView)findViewById(R.id.score);
         opc1 = (Button)findViewById(R.id.btnOpt1);
@@ -38,6 +39,8 @@ public class testQuiz extends AppCompatActivity {
         opc3 = (Button)findViewById(R.id.btnOpt3);
         opc4 = (Button)findViewById(R.id.btnOpt4);
 
+        this.cuestionario = (Cuestionario)getIntent().getExtras().getSerializable("cuestionario");
+        this.setTitle(cuestionario.getCategoria(numPregunta));
         actualizarPregunta();
 
         //btn 1
@@ -112,16 +115,17 @@ public class testQuiz extends AppCompatActivity {
     }
 
     public void actualizarPregunta(){
-        textPregunta.setText(preguntas.getPregunta(numPregunta));
-        opc1.setText(preguntas.getAlternativa1(numPregunta));
-        opc2.setText(preguntas.getAlternativa2(numPregunta));
-        opc3.setText(preguntas.getAlternativa3(numPregunta));
-        opc4.setText(preguntas.getAlternativa4(numPregunta));
+        textPregunta.setText(cuestionario.getPregunta(numPregunta));
+        opc1.setText(cuestionario.getAlternativa1(numPregunta));
+        opc2.setText(cuestionario.getAlternativa2(numPregunta));
+        opc3.setText(cuestionario.getAlternativa3(numPregunta));
+        opc4.setText(cuestionario.getAlternativa4(numPregunta));
 
-        respuesta = preguntas.getRespuestaCorrecta(numPregunta);
+        respuesta = cuestionario.getRespuestaCorrecta(numPregunta);
         numPregunta++;
 
     }
+
 
     public void actualizarPuntaje(int punto){
         textPuntaje.setText("Puntaje: "+puntaje);
