@@ -95,7 +95,7 @@ public class FragmentAprender extends Fragment {
         preguntas.clear();
         preguntas.add(new Pregunta("Intro","Pregunta N°1",1,"Hola","Adios","Buenos Días","Hasta luego","Adios"));
         preguntas.add(new Pregunta("Intro","Pregunta N°2",1,"Adios","Temprano","Buenas noches","Hola","Hola"));
-        preguntas.add(new Pregunta("Intro","Pregunta N°3",1,"Hasta Luego","Día","Rápido","Noche","Hasta Día"));
+        preguntas.add(new Pregunta("Intro","Pregunta N°3",1,"Hasta Luego","Día","Rápido","Noche","Día"));
         preguntas.add(new Pregunta("Intro","Pregunta N°4",1,"Día","Hola","Noche","Adios","Noche"));
         return preguntas;
     }

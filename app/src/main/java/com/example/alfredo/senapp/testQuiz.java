@@ -1,5 +1,6 @@
 package com.example.alfredo.senapp;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class testQuiz extends AppCompatActivity {
+
+    MediaPlayer mpWin;
+    MediaPlayer mpFail;
 
     private Cuestionario cuestionario;
 
@@ -31,6 +35,8 @@ public class testQuiz extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mpWin = MediaPlayer.create(this, R.raw.win);
+        mpFail = MediaPlayer.create(this, R.raw.fail);
 
         textPregunta = (TextView)findViewById(R.id.descripcion);
         textPuntaje = (TextView)findViewById(R.id.score);
@@ -48,11 +54,13 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(opc1.getText() == respuesta){
+                    mpWin.start();
                     puntaje += 1;
                     actualizarPuntaje(puntaje);
                     actualizarPregunta();
                     Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                 } else {
+                    mpFail.start();
                     Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -63,11 +71,15 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(opc2.getText() == respuesta){
+
+                    //
+                    mpWin.start();
                     puntaje += 1;
                     actualizarPuntaje(puntaje);
                     actualizarPregunta();
                     Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                 } else {
+                    mpFail.start();
                     Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -78,11 +90,13 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(opc3.getText() == respuesta){
+                    mpWin.start();
                     puntaje += 1;
                     actualizarPuntaje(puntaje);
                     actualizarPregunta();
                     Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                 } else {
+                    mpFail.start();
                     Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -93,11 +107,13 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(opc4.getText() == respuesta){
+                    mpWin.start();
                     puntaje += 1;
                     actualizarPuntaje(puntaje);
                     actualizarPregunta();
                     Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                 } else {
+                    mpFail.start();
                     Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
                 }
             }

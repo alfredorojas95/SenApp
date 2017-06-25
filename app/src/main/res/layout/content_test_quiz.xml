@@ -21,7 +21,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <TextView
             android:text="Puntaje: 0"
             android:layout_width="match_parent"
@@ -40,14 +39,21 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="31dp"
             android:layout_weight="0.15" />
-
+        <!--
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             app:srcCompat="@drawable/account"
             android:id="@+id/imageView"
             android:layout_above="@+id/btnOpt2"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true" /> -->
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/luffy"
+            />
 
         <Button
             android:text="Opcion1"
@@ -56,7 +62,7 @@
             android:layout_marginTop="61dp"
             android:id="@+id/btnOpt1"
             android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true" />
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:text="Opcion2"
