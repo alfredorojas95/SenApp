@@ -52,7 +52,7 @@ public class Cuestionario implements Serializable {
         return respuesta;
     }
 
-    public ArrayList<Pregunta> changeOrder(int largo){
+    public void changeOrder(int largo){
         int [] orden =  getRandomList(largo);
         ArrayList<Pregunta> random = new ArrayList<Pregunta>();
         for (int i = 0; i < preguntas.size(); i++){
@@ -61,8 +61,6 @@ public class Cuestionario implements Serializable {
         }
         preguntas.clear();
         preguntas = random;
-        return preguntas;
-
     }
 
     public int getRandom(int min, int max){

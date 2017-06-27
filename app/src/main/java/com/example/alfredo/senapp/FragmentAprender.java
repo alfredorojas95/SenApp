@@ -51,6 +51,7 @@ public class FragmentAprender extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), testQuiz.class);
                 cuestionarioSelect = new Cuestionario(initPreguntasCalendario());
+                cuestionarioSelect.changeOrder(initPreguntasCalendario().size());
                 intent.putExtra("cuestionario", cuestionarioSelect);
                 startActivity(intent);
             }
@@ -62,6 +63,7 @@ public class FragmentAprender extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), testQuiz.class);
                 cuestionarioSelect = new Cuestionario(initPreguntasTiempo());
+                cuestionarioSelect.changeOrder(initPreguntasTiempo().size());
                 intent.putExtra("cuestionario", cuestionarioSelect);
                 startActivity(intent);
             }
@@ -73,6 +75,7 @@ public class FragmentAprender extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), testQuiz.class);
                 cuestionarioSelect = new Cuestionario(initPreguntasFamilia());
+                cuestionarioSelect.changeOrder(initPreguntasFamilia().size());
                 intent.putExtra("cuestionario", cuestionarioSelect);
                 startActivity(intent);
             }
