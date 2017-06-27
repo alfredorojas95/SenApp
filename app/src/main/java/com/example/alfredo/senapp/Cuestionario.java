@@ -51,4 +51,52 @@ public class Cuestionario implements Serializable {
         String respuesta = preguntas.get(i).getRespuesta();
         return respuesta;
     }
+
+    public ArrayList<Pregunta> changeOrder(int largo){
+        int [] orden =  getRandomList(largo);
+        ArrayList<Pregunta> random = new ArrayList<Pregunta>();
+        for (int i = 0; i < preguntas.size(); i++){
+            Pregunta p = obtenerPregunta(orden[i]-1);
+            random.add(p);
+        }
+        preguntas.clear();
+        preguntas = random;
+        return preguntas;
+
+    }
+
+    public int getRandom(int min, int max){
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
+    }
+
+    public int[] getRandomList(int largo){
+        int i = 0;
+        int [] random = new int[largo];
+        while(!(random[random.length-1]!=0)){
+            int numRandom = getRandom(1, largo);
+            if(exist(random, numRandom)==false){
+                random[i]= numRandom;
+                i++;
+                System.out.println("pos-> "+i +" = "+numRandom);
+            }
+
+        }
+        return random;
+    }
+
+    public boolean exist(int[] array, int num){
+        boolean existe = false;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]==num){
+                existe = true;
+            }
+        }
+        return existe;
+    }
+
+    public Pregunta obtenerPregunta(int id){
+        Pregunta p = preguntas.get(id);
+        return p;
+    }
 }

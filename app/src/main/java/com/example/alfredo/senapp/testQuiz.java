@@ -1,7 +1,9 @@
 package com.example.alfredo.senapp;
 
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 public class testQuiz extends AppCompatActivity {
 
+    private int contadorTimer = 15;
+    Thread t;
     MediaPlayer mpWin;
     MediaPlayer mpFail;
 
@@ -20,6 +24,7 @@ public class testQuiz extends AppCompatActivity {
 
     private TextView textPregunta;
     private TextView textPuntaje;
+    private TextView textTimer;
     private Button opc1;
     private Button opc2;
     private Button opc3;
@@ -40,12 +45,14 @@ public class testQuiz extends AppCompatActivity {
 
         textPregunta = (TextView)findViewById(R.id.descripcion);
         textPuntaje = (TextView)findViewById(R.id.score);
+        //textTimer = (TextView)findViewById(R.id.timer);
         opc1 = (Button)findViewById(R.id.btnOpt1);
         opc2 = (Button)findViewById(R.id.btnOpt2);
         opc3 = (Button)findViewById(R.id.btnOpt3);
         opc4 = (Button)findViewById(R.id.btnOpt4);
 
         this.cuestionario = (Cuestionario)getIntent().getExtras().getSerializable("cuestionario");
+        System.out.println("------> "+cuestionario.getCategoria(numPregunta));
         this.setTitle(cuestionario.getCategoria(numPregunta));
         actualizarPregunta();
 
@@ -143,6 +150,23 @@ public class testQuiz extends AppCompatActivity {
     }
 
 
+    public void startTimer(){
+        contadorTimer = 15;
+        textPregunta.setTextColor(Color.parseColor("#FFFFFF"));
+        new CountDownTimer(15000, 1000){
+            public void onTick(long millisUntilFinished){
+                textPregunta.setText(String.valueOf(contadorTimer));
+                contadorTimer--;
+                if(contadorTimer==5){
+                    textPregunta.setTextColor(Color.parseColor("#D22F2F"));
+                }
+            }
+
+            public void onFinish(){
+               actualizarPregunta();
+            }
+        }.start();
+    }
     public void actualizarPuntaje(int punto){
         textPuntaje.setText("Puntaje: "+puntaje);
     }

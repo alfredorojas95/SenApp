@@ -39,6 +39,7 @@ public class FragmentAprender extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), testQuiz.class);
                 cuestionarioSelect = new Cuestionario(initPreguntasIntro());
+                cuestionarioSelect.changeOrder(initPreguntasIntro().size());
                 intent.putExtra("cuestionario", cuestionarioSelect);
                 startActivity(intent);
             }
@@ -93,49 +94,49 @@ public class FragmentAprender extends Fragment {
 
     public ArrayList<Pregunta> initPreguntasIntro(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Intro","Pregunta N°1",1,"Hola","Adios","Buenos Días","Hasta luego","Adios"));
-        preguntas.add(new Pregunta("Intro","Pregunta N°2",1,"Adios","Temprano","Buenas noches","Hola","Hola"));
-        preguntas.add(new Pregunta("Intro","Pregunta N°3",1,"Hasta Luego","Día","Rápido","Noche","Día"));
-        preguntas.add(new Pregunta("Intro","Pregunta N°4",1,"Día","Hola","Noche","Adios","Noche"));
+        preguntas.add(new Pregunta("Intro",1,"Pregunta N°1",1,"Hola","Adios","Buenos Días","Hasta luego","Adios"));
+        preguntas.add(new Pregunta("Intro",2,"Pregunta N°2",2,"Adios","Temprano","Buenas noches","Hola","Hola"));
+        preguntas.add(new Pregunta("Intro",3,"Pregunta N°3",3,"Hasta Luego","Día","Rápido","Noche","Día"));
+        preguntas.add(new Pregunta("Intro",3,"Pregunta N°4",4,"Día","Hola","Noche","Adios","Noche"));
         return preguntas;
     }
 
     public ArrayList<Pregunta> initPreguntasCalendario(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Calendario","",1,"papa","dos","dosmil","cuatro","papa"));
-        preguntas.add(new Pregunta("Calendario","",1,"hola","seis","mama","ocho","mama"));
-        preguntas.add(new Pregunta("Calendario","",1,"nueve","hijo","once","doce","hijo"));
-        preguntas.add(new Pregunta("Calendario","",1,"trece","catorce","quince","dieciseis","quince"));
+        preguntas.add(new Pregunta("Calendario",1,"",1,"papa","dos","dosmil","cuatro","papa"));
+        preguntas.add(new Pregunta("Calendario",2,"",2,"hola","seis","mama","ocho","mama"));
+        preguntas.add(new Pregunta("Calendario",3,"",3,"nueve","hijo","once","doce","hijo"));
+        preguntas.add(new Pregunta("Calendario",4,"",4,"trece","catorce","quince","dieciseis","quince"));
         return preguntas;
 
     }
 
     public ArrayList<Pregunta> initPreguntasTiempo(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Tiempo","",1,"papa","dos","dosmil","cuatro","papa"));
-        preguntas.add(new Pregunta("Tiempo","",1,"hola","seis","mama","ocho","mama"));
-        preguntas.add(new Pregunta("Tiempo","",1,"nueve","hijo","once","doce","hijo"));
-        preguntas.add(new Pregunta("Tiempo","",1,"trece","catorce","quince","dieciseis","quince"));
+        preguntas.add(new Pregunta("Tiempo",1,"",1,"papa","dos","dosmil","cuatro","papa"));
+        preguntas.add(new Pregunta("Tiempo",2,"",1,"hola","seis","mama","ocho","mama"));
+        preguntas.add(new Pregunta("Tiempo",3,"",1,"nueve","hijo","once","doce","hijo"));
+        preguntas.add(new Pregunta("Tiempo",4,"",1,"trece","catorce","quince","dieciseis","quince"));
         return preguntas;
 
     }
 
     public ArrayList<Pregunta> initPreguntasFamilia(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Familia","Pregunta N°1",1,"Papá","Hijo","Abuelo","Mamá","Hijo"));
-        preguntas.add(new Pregunta("Familia","Pregunta N°2",1,"Bebé","Abuela","Mama","Padrastro","Mamá"));
-        preguntas.add(new Pregunta("Familia","Pregunta N°3",1,"Papá","hijo","once","Nieto","hijo"));
-        preguntas.add(new Pregunta("Familia","Pregunta N°4",1,"Nieto","Papá","Abuela","Mamá","Abuela"));
+        preguntas.add(new Pregunta("Familia",1,"Pregunta N°1",1,"Papá","Hijo","Abuelo","Mamá","Hijo"));
+        preguntas.add(new Pregunta("Familia",2,"Pregunta N°2",1,"Bebé","Abuela","Mama","Padrastro","Mamá"));
+        preguntas.add(new Pregunta("Familia",3,"Pregunta N°3",1,"Papá","hijo","once","Nieto","hijo"));
+        preguntas.add(new Pregunta("Familia",4,"Pregunta N°4",1,"Nieto","Papá","Abuela","Mamá","Abuela"));
         return preguntas;
 
     }
 
     public ArrayList<Pregunta> initPreguntasTransporte(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Transporte","",1,"papa","dos","dosmil","cuatro","papa"));
-        preguntas.add(new Pregunta("Transporte","",1,"hola","seis","mama","ocho","mama"));
-        preguntas.add(new Pregunta("Transporte","",1,"nueve","hijo","once","doce","hijo"));
-        preguntas.add(new Pregunta("Transporte","",1,"trece","catorce","quince","dieciseis","quince"));
+        preguntas.add(new Pregunta("Transporte",1,"",1,"papa","dos","dosmil","cuatro","papa"));
+        preguntas.add(new Pregunta("Transporte",2,"",1,"hola","seis","mama","ocho","mama"));
+        preguntas.add(new Pregunta("Transporte",3,"",1,"nueve","hijo","once","doce","hijo"));
+        preguntas.add(new Pregunta("Transporte",4,"",1,"trece","catorce","quince","dieciseis","quince"));
         return preguntas;
 
     }

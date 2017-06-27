@@ -6,6 +6,7 @@ import java.io.Serializable;
 public class Pregunta implements Serializable{
 
     private String categoria;
+    private int id;
     private String descripcion;
     private int imagen;
     private String alternativa1;
@@ -14,8 +15,9 @@ public class Pregunta implements Serializable{
     private String alternativa4;
     private String respuesta;
 
-    public Pregunta(String categoria, String descripcion, int imagen, String alternativa1, String alternativa2, String alternativa3, String alternativa4, String respuesta) {
+    public Pregunta(String categoria,int id, String descripcion, int imagen, String alternativa1, String alternativa2, String alternativa3, String alternativa4, String respuesta) {
         this.categoria = categoria;
+        this.id = id;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.alternativa1 = alternativa1;
@@ -23,6 +25,14 @@ public class Pregunta implements Serializable{
         this.alternativa3 = alternativa3;
         this.alternativa4 = alternativa4;
         this.respuesta = respuesta;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategoria() {
@@ -88,4 +98,5 @@ public class Pregunta implements Serializable{
     public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
     }
+
 }
