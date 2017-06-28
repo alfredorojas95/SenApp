@@ -95,6 +95,18 @@ public class Cuestionario implements Serializable {
 
     public Pregunta obtenerPregunta(int id){
         Pregunta p = preguntas.get(id);
+        p = setOrdenAlternativas(p);
+        return p;
+    }
+
+    public Pregunta setOrdenAlternativas(Pregunta p){
+        int [] orden =  getRandomList(4);
+        String [] alternativas = {p.getAlternativa1(),p.getAlternativa2(), p.getAlternativa3(), p.getAlternativa4()};
+
+        p.setAlternativa1(alternativas[orden[0]-1]);
+        p.setAlternativa2(alternativas[orden[1]-1]);
+        p.setAlternativa3(alternativas[orden[2]-1]);
+        p.setAlternativa4(alternativas[orden[3]-1]);
         return p;
     }
 }

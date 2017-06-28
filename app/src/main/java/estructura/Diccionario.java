@@ -23,7 +23,7 @@ public class Diccionario {
     public ArrayList<Palabra> initPalabras(){
 
         //A
-        palabras.add(new Palabra( R.drawable.hand,"Abogado","Profesión"));
+        palabras.add(new Palabra( R.drawable.bike,"Abogado","Profesión"));
         palabras.add(new Palabra( R.drawable.hand,"Abril","Mes"));
         palabras.add(new Palabra( R.drawable.hand,"Anteayer",""));
         palabras.add(new Palabra( R.drawable.hand,"Antes","Tiempo"));

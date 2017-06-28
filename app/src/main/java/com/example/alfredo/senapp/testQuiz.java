@@ -1,15 +1,19 @@
 package com.example.alfredo.senapp;
 
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,15 +64,20 @@ public class testQuiz extends AppCompatActivity {
         opc1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(opc1.getText() == respuesta){
-                    mpWin.start();
-                    puntaje += 1;
-                    actualizarPuntaje(puntaje);
+                if(numPregunta<4){
+                    if(opc1.getText() == respuesta){
+                        mpWin.start();//sonido
+                        puntaje += 1;//sumar puntaje
+                        actualizarPuntaje(puntaje);
+                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mpFail.start();
+                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
+                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                    }
                     actualizarPregunta();
-                    Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
-                } else {
-                    mpFail.start();
-                    Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
+                } else if(numPregunta>=4) {
+                    goDialog();
                 }
             }
         });
@@ -77,18 +86,23 @@ public class testQuiz extends AppCompatActivity {
         opc2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(opc2.getText() == respuesta){
 
-                    //
-                    mpWin.start();
-                    puntaje += 1;
-                    actualizarPuntaje(puntaje);
+                if(numPregunta<4){
+                    if(opc2.getText() == respuesta){
+                        mpWin.start();
+                        puntaje += 1;
+                        actualizarPuntaje(puntaje);
+                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mpFail.start();
+                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
+                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                    }
                     actualizarPregunta();
-                    Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
-                } else {
-                    mpFail.start();
-                    Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
+                } else if(numPregunta>=4) {
+                    goDialog();
                 }
+
             }
         });
 
@@ -96,16 +110,22 @@ public class testQuiz extends AppCompatActivity {
         opc3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(opc3.getText() == respuesta){
-                    mpWin.start();
-                    puntaje += 1;
-                    actualizarPuntaje(puntaje);
+                if(numPregunta<4){
+                    if(opc3.getText() == respuesta){
+                        mpWin.start();
+                        puntaje += 1;
+                        actualizarPuntaje(puntaje);
+                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mpFail.start();
+                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
+                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                    }
                     actualizarPregunta();
-                    Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
-                } else {
-                    mpFail.start();
-                    Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
+                } else if(numPregunta>=4) {
+                    goDialog();
                 }
+
             }
         });
 
@@ -113,15 +133,20 @@ public class testQuiz extends AppCompatActivity {
         opc4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(opc4.getText() == respuesta){
-                    mpWin.start();
-                    puntaje += 1;
-                    actualizarPuntaje(puntaje);
+                if(numPregunta<4){
+                    if(opc4.getText() == respuesta){
+                        mpWin.start();
+                        puntaje += 1;
+                        actualizarPuntaje(puntaje);
+                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mpFail.start();
+                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
+                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                    }
                     actualizarPregunta();
-                    Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
-                } else {
-                    mpFail.start();
-                    Toast.makeText(testQuiz.this, "Incorrecto", Toast.LENGTH_SHORT).show();
+                }else if(numPregunta>=4) {
+                    goDialog();
                 }
             }
         });
@@ -167,9 +192,50 @@ public class testQuiz extends AppCompatActivity {
             }
         }.start();
     }
+
     public void actualizarPuntaje(int punto){
+        System.out.println("num pregunta -> "+numPregunta);
+        System.out.println("puntaje ---> "+puntaje);
         textPuntaje.setText("Puntaje: "+puntaje);
     }
 
 
+    private void goQuiz(){
+        //setContentView(R.layout.fragment_fragment_aprender);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
+        this.setTitle("Quiz");
+    }
+
+    public void goDialog(){
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(testQuiz.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_complete_quiz, null);
+        if(puntaje<2){
+            TextView wText = (TextView)mView.findViewById(R.id.textQuiz);
+            wText.setText("Inténtalo nuevamente");
+            ImageView wImage = (ImageView)mView.findViewById(R.id.imageWin);
+            wImage.setImageResource(R.drawable.lose);
+        }
+        TextView wTextPuntaje = (TextView)mView.findViewById(R.id.textQuizPuntaje);
+        wTextPuntaje.setText("Puntaje: "+puntaje);
+        Button wBtn = (Button)mView.findViewById(R.id.btnWin);
+
+        wBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(testQuiz.this, "go quiz activity", Toast.LENGTH_SHORT).show();
+                //volver a quiz
+            }
+        });
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();;
+
+    }
+
+    public void sayBye(){
+        goQuiz();
+    }
 }
