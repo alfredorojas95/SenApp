@@ -89,7 +89,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/egg"
+        app:srcCompat="@drawable/feets"
         android:id="@+id/btn_intro"
         android:scaleType="fitXY"
         android:background="@null"
