@@ -17,6 +17,10 @@ public class Cuestionario implements Serializable {
         this.preguntas = preguntas;
     }
 
+    public int getImagen(int i){
+        int imagen = preguntas.get(i).getImagen();
+        return imagen;
+    }
     public String getCategoria(int i){
         String pregunta = preguntas.get(i).getCategoria();
         return pregunta;

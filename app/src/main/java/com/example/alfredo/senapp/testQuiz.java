@@ -25,7 +25,7 @@ public class testQuiz extends AppCompatActivity {
     MediaPlayer mpFail;
 
     private Cuestionario cuestionario;
-
+    private ImageView imagen;
     private TextView textPregunta;
     private TextView textPuntaje;
     private TextView textTimer;
@@ -47,6 +47,7 @@ public class testQuiz extends AppCompatActivity {
         mpWin = MediaPlayer.create(this, R.raw.win);
         mpFail = MediaPlayer.create(this, R.raw.fail);
 
+        imagen = (ImageView)findViewById(R.id.gifQuiz);
         textPregunta = (TextView)findViewById(R.id.descripcion);
         textPuntaje = (TextView)findViewById(R.id.score);
         //textTimer = (TextView)findViewById(R.id.timer);
@@ -72,8 +73,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
-                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
-                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
                     actualizarPregunta();
                 } else if(numPregunta>=4) {
@@ -95,8 +95,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
-                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
-                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
                     actualizarPregunta();
                 } else if(numPregunta>=4) {
@@ -118,8 +117,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
-                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
-                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
                     actualizarPregunta();
                 } else if(numPregunta>=4) {
@@ -141,8 +139,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
-                        String respCorrecta = cuestionario.getRespuestaCorrecta(numPregunta);
-                        Toast.makeText(testQuiz.this, "->: "+respCorrecta, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(testQuiz.this,respuesta, Toast.LENGTH_SHORT).show();
                     }
                     actualizarPregunta();
                 }else if(numPregunta>=4) {
@@ -163,6 +160,7 @@ public class testQuiz extends AppCompatActivity {
     }
 
     public void actualizarPregunta(){
+        imagen.setImageResource(cuestionario.getImagen(numPregunta));
         textPregunta.setText(cuestionario.getPregunta(numPregunta));
         opc1.setText(cuestionario.getAlternativa1(numPregunta));
         opc2.setText(cuestionario.getAlternativa2(numPregunta));
