@@ -19,13 +19,11 @@ public class ListDiccionario extends ListFragment{
 
 
     String palabras[]={
-      "A","B","C","D","E","F","G","H","I"
+      "A","B"
     };
 
     int images[] = {
-            R.drawable.hand, R.drawable.hand2, R.drawable.hand, R.drawable.hand2,
-            R.drawable.hand,R.drawable.hand2, R.drawable.hand, R.drawable.hand2,
-            R.drawable.hand2
+            R.drawable.bike, R.drawable.calendar
     };
 
     @Override
