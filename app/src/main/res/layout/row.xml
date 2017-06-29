@@ -5,14 +5,6 @@
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
 >
-<!--
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="5dp"
-        android:id="@+id/icon"/>
-        -->
-
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="60dp"
@@ -36,10 +28,11 @@
             android:layout_height="wrap_content"
             android:padding="2dp"
             android:id="@+id/nombrePalabra"
-            android:textColor="#33CC33"
+            android:textColor="#8A2ADA"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
-            android:text="Medium text"/>
+            android:text="Medium text"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
