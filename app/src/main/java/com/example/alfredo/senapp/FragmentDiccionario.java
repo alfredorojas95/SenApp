@@ -12,11 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import estructura.Adapter;
 import estructura.Diccionario;
 import estructura.Palabra;
 

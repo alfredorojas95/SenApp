@@ -172,7 +172,7 @@ public class testQuiz extends AppCompatActivity {
 
     public void actualizarPregunta(){
         imagen.setImageResource(cuestionario.getImagen(numPregunta));
-        textPregunta.setText(cuestionario.getPregunta(numPregunta));
+        textPregunta.setText("Pregunta "+(numPregunta+1) +" / "+cuestionario.getLargo());
         opc1.setText(cuestionario.getAlternativa1(numPregunta));
         opc2.setText(cuestionario.getAlternativa2(numPregunta));
         opc3.setText(cuestionario.getAlternativa3(numPregunta));
