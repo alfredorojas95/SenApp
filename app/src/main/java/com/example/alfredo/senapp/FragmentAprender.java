@@ -2,7 +2,6 @@ package com.example.alfredo.senapp;
 
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +9,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-import estructura.Palabra;
+import estructura.Cuestionario;
+import estructura.Pregunta;
 
 
 public class FragmentAprender extends Fragment {

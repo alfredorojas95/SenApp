@@ -1,4 +1,4 @@
-package com.example.alfredo.senapp;
+package estructura;
 
 
 import java.io.Serializable;

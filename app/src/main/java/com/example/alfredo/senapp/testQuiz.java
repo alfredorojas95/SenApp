@@ -1,13 +1,10 @@
 package com.example.alfredo.senapp;
 
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import estructura.Cuestionario;
 
 public class testQuiz extends AppCompatActivity {
 
@@ -65,7 +64,7 @@ public class testQuiz extends AppCompatActivity {
         opc1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(numPregunta<4){
+                if(numPregunta<cuestionario.getLargo()){
                     if(opc1.getText() == respuesta){
                         mpWin.start();//sonido
                         puntaje += 1;//sumar puntaje
@@ -75,9 +74,12 @@ public class testQuiz extends AppCompatActivity {
                         mpFail.start();
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
-                    actualizarPregunta();
-                } else if(numPregunta>=4) {
-                    goDialog();
+                    numPregunta++;
+                    if(numPregunta<4){
+                        actualizarPregunta();
+                    }else {
+                        goDialog();
+                    }
                 }
             }
         });
@@ -87,7 +89,7 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-                if(numPregunta<4){
+                if(numPregunta<cuestionario.getLargo()){
                     if(opc2.getText() == respuesta){
                         mpWin.start();
                         puntaje += 1;
@@ -97,11 +99,13 @@ public class testQuiz extends AppCompatActivity {
                         mpFail.start();
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
-                    actualizarPregunta();
-                } else if(numPregunta>=4) {
-                    goDialog();
+                    numPregunta++;
+                    if(numPregunta<4){
+                        actualizarPregunta();
+                    }else {
+                        goDialog();
+                    }
                 }
-
             }
         });
 
@@ -109,7 +113,7 @@ public class testQuiz extends AppCompatActivity {
         opc3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(numPregunta<4){
+                if(numPregunta<cuestionario.getLargo()){
                     if(opc3.getText() == respuesta){
                         mpWin.start();
                         puntaje += 1;
@@ -119,9 +123,13 @@ public class testQuiz extends AppCompatActivity {
                         mpFail.start();
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
-                    actualizarPregunta();
-                } else if(numPregunta>=4) {
-                    goDialog();
+                    numPregunta++;
+                    if(numPregunta<4){
+                        actualizarPregunta();
+                    }else {
+                        goDialog();
+                    }
+
                 }
 
             }
@@ -131,7 +139,7 @@ public class testQuiz extends AppCompatActivity {
         opc4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(numPregunta<4){
+                if(numPregunta<cuestionario.getLargo()){
                     if(opc4.getText() == respuesta){
                         mpWin.start();
                         puntaje += 1;
@@ -141,9 +149,12 @@ public class testQuiz extends AppCompatActivity {
                         mpFail.start();
                         Toast.makeText(testQuiz.this,respuesta, Toast.LENGTH_SHORT).show();
                     }
-                    actualizarPregunta();
-                }else if(numPregunta>=4) {
-                    goDialog();
+                    numPregunta++;
+                    if(numPregunta<4){
+                        actualizarPregunta();
+                    } else {
+                        goDialog();
+                    }
                 }
             }
         });
@@ -168,8 +179,6 @@ public class testQuiz extends AppCompatActivity {
         opc4.setText(cuestionario.getAlternativa4(numPregunta));
 
         respuesta = cuestionario.getRespuestaCorrecta(numPregunta);
-        numPregunta++;
-
     }
 
 

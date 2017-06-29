@@ -1,6 +1,6 @@
-package com.example.alfredo.senapp;
+package estructura;
 
-import com.example.alfredo.senapp.Pregunta;
+import estructura.Pregunta;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -112,5 +112,9 @@ public class Cuestionario implements Serializable {
         p.setAlternativa3(alternativas[orden[2]-1]);
         p.setAlternativa4(alternativas[orden[3]-1]);
         return p;
+    }
+
+    public int getLargo(){
+        return preguntas.size();
     }
 }
