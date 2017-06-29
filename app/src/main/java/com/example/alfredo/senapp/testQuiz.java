@@ -218,13 +218,27 @@ public class testQuiz extends AppCompatActivity {
     public void goDialog(){
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(testQuiz.this);
         View mView = getLayoutInflater().inflate(R.layout.dialog_complete_quiz, null);
-        if(puntaje<2){
-            TextView wText = (TextView)mView.findViewById(R.id.textQuiz);
-            wText.setText("Inténtalo nuevamente");
-            ImageView wImage = (ImageView)mView.findViewById(R.id.imageWin);
-            wImage.setImageResource(R.drawable.lose);
-        }
+
+        //textos e imagen de xml dialogo
+        TextView wText = (TextView)mView.findViewById(R.id.textDialog);
         TextView wTextPuntaje = (TextView)mView.findViewById(R.id.textQuizPuntaje);
+        ImageView wImage = (ImageView)mView.findViewById(R.id.imageWin);
+
+        if(puntaje==0){
+            wText.setText("Inténtalo nuevamente");
+            wTextPuntaje.setText("Puntaje: "+puntaje+"/"+cuestionario.getLargo());
+            wImage.setImageResource(R.drawable.lose);
+        } else if(puntaje==1){
+            wText.setText("Aún debes practicar!");
+            wTextPuntaje.setText("Puntaje: "+puntaje+"/"+cuestionario.getLargo());
+            wImage.setImageResource(R.drawable.losertest);
+        } else if(puntaje>1 && puntaje < cuestionario.getLargo()){
+            wText.setText("Puedes mejorar!");
+            wTextPuntaje.setText("Puntaje: "+puntaje+"/"+cuestionario.getLargo());
+            wImage.setImageResource(R.drawable.winmedal);
+        }
+
+
         wTextPuntaje.setText("Puntaje: "+puntaje);
         Button wBtn = (Button)mView.findViewById(R.id.btnWin);
 
