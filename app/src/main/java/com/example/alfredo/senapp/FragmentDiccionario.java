@@ -40,7 +40,22 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
         layout = inflater.inflate(R.layout.fragment_fragment_diccionario, container, false);
         context = layout.getContext();
 
+
         searchView = (SearchView)layout.findViewById(R.id.barraBusqueda);
+        //buscador xml searchView
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+            return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+            adaptador.getFilter().filter(newText);
+            return false;
+            }
+        });
+
         lista = (ListView) layout.findViewById(R.id.list1);
         //lista.setDivider(null);
 
@@ -48,23 +63,8 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
         lista.setAdapter(adaptador);
         lista.setOnItemClickListener(mMessageClickedHandler);
 
-
-        //buscador xml searchView
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adaptador.getFilter().filter(newText);
-                return false;
-            }
-        });
         return layout;
     }
-
 
     private AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {

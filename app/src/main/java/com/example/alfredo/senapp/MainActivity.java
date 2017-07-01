@@ -52,19 +52,9 @@ public class MainActivity extends AppCompatActivity
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
 
+        //
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -75,7 +65,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
+        this.setTitle("Alfredo");
 
     }
 
@@ -113,11 +105,13 @@ public class MainActivity extends AppCompatActivity
 
         FragmentManager fragmentManager = getFragmentManager();
 
-        if (id == R.id.nav_diccionario) {
+         if (id == R.id.nav_bienvenida) {
+            fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
+            this.setTitle("Welcome");
+        }else if (id == R.id.nav_diccionario) {
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentDiccionario()).commit();
             this.setTitle("Diccionario");
-
         } else if (id == R.id.nav_aprender) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
             this.setTitle("Practica");

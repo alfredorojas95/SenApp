@@ -2,11 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- lupa toolbar -->
+    <!--
     <item
         android:id="@+id/action_search"
         android:title="Bus:"
         android:icon="@drawable/lupa"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always"/>
-
+-->
 </menu>

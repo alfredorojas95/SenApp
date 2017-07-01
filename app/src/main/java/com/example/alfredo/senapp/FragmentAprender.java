@@ -55,13 +55,13 @@ public class FragmentAprender extends Fragment {
             }
         });
 
-        ImageButton btnTiempo=( ImageButton) view.findViewById(R.id.btn_time);
+        ImageButton btnTiempo=( ImageButton) view.findViewById(R.id.btn_profesion);
         btnTiempo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), testQuiz.class);
-                cuestionarioSelect = new Cuestionario(initPreguntasTiempo());
-                cuestionarioSelect.changeOrder(initPreguntasTiempo().size());
+                cuestionarioSelect = new Cuestionario(initPreguntasProfesion());
+                cuestionarioSelect.changeOrder(initPreguntasProfesion().size());
                 intent.putExtra("cuestionario", cuestionarioSelect);
                 startActivity(intent);
             }
@@ -112,32 +112,32 @@ public class FragmentAprender extends Fragment {
 
     }
 
-    public ArrayList<Pregunta> initPreguntasTiempo(){
+    public ArrayList<Pregunta> initPreguntasProfesion(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Tiempo",1,"",1,"papa","dos","dosmil","cuatro","papa"));
-        preguntas.add(new Pregunta("Tiempo",2,"",1,"hola","seis","mama","ocho","mama"));
-        preguntas.add(new Pregunta("Tiempo",3,"",1,"nueve","hijo","once","doce","hijo"));
-        preguntas.add(new Pregunta("Tiempo",4,"",1,"trece","catorce","quince","dieciseis","quince"));
+        preguntas.add(new Pregunta("Profesión",1,"",R.drawable.profesor,"Profesor","Matrona","Abogado","Diputado","Profesor"));
+        preguntas.add(new Pregunta("Profesión",2,"",R.drawable.ingeniero,"Arbitro","Enfermero","Ingeniero","Pastor","Ingeniero"));
+        preguntas.add(new Pregunta("Profesión",3,"",R.drawable.arbitro,"Mecánico","Arbitro","once","doce","Arbitro"));
+        preguntas.add(new Pregunta("Profesión",4,"",R.drawable.abogado,"trece","Abogado","Enfermero","Profesor","Abogado"));
         return preguntas;
 
     }
 
     public ArrayList<Pregunta> initPreguntasFamilia(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Familia",1,"Pregunta N°1",1,"Papá","Hijo","Abuelo","Mamá","Hijo"));
-        preguntas.add(new Pregunta("Familia",2,"Pregunta N°2",1,"Bebé","Abuela","Mama","Padrastro","Mamá"));
-        preguntas.add(new Pregunta("Familia",3,"Pregunta N°3",1,"Papá","hijo","once","Nieto","hijo"));
-        preguntas.add(new Pregunta("Familia",4,"Pregunta N°4",1,"Nieto","Papá","Abuela","Mamá","Abuela"));
+        preguntas.add(new Pregunta("Familia",1,"Pregunta N°1",R.drawable.hijo,"Papá","Hijo","Abuelo","Mamá","Hijo"));
+        preguntas.add(new Pregunta("Familia",2,"Pregunta N°2",R.drawable.mama,"Bebé","Abuela","Mama","Padrastro","Mamá"));
+        preguntas.add(new Pregunta("Familia",3,"Pregunta N°3",R.drawable.hermano,"Papá","hijo","Hermano","Nieto","Hermano"));
+        preguntas.add(new Pregunta("Familia",4,"Pregunta N°4",R.drawable.abuelo,"Nieto","Papá","Abuel","Mamá","Abuelo"));
         return preguntas;
 
     }
 
     public ArrayList<Pregunta> initPreguntasTransporte(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Transporte",1,"",1,"Bicicleta","Micro","Avión","Auto","Micro"));
-        preguntas.add(new Pregunta("Transporte",2,"",1,"Motocicleta","Auto","Micro","Tren","Tren"));
-        preguntas.add(new Pregunta("Transporte",3,"",1,"Auto","Caballo","Tren","Avión","Auto"));
-        preguntas.add(new Pregunta("Transporte",4,"",1,"Micro","Barco","Motocicleta","Caballo","Barco"));
+        preguntas.add(new Pregunta("Transporte",1,"",R.drawable.bus,"Bicicleta","Bus","Avión","Auto","Bus"));
+        preguntas.add(new Pregunta("Transporte",2,"",R.drawable.bicicleta,"Motocicleta","Auto","Bicicleta","Tren","Bicicleta"));
+        preguntas.add(new Pregunta("Transporte",3,"",R.drawable.auto,"Auto","Caballo","Tren","Avión","Auto"));
+        preguntas.add(new Pregunta("Transporte",4,"",R.drawable.moto,"Micro","Barco","Motocicleta","Caballo","Motocicleta"));
         return preguntas;
 
     }
