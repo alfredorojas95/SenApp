@@ -104,10 +104,10 @@ public class FragmentAprender extends Fragment {
 
     public ArrayList<Pregunta> initPreguntasCalendario(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Calendario",1,"",1,"papa","dos","dosmil","cuatro","papa"));
-        preguntas.add(new Pregunta("Calendario",2,"",2,"hola","seis","mama","ocho","mama"));
-        preguntas.add(new Pregunta("Calendario",3,"",3,"nueve","hijo","once","doce","hijo"));
-        preguntas.add(new Pregunta("Calendario",4,"",4,"trece","catorce","quince","dieciseis","quince"));
+        preguntas.add(new Pregunta("Calendario",1,"",R.drawable.manana,"Domingo","Mañana","Septiembre","Ayer","Mañana"));
+        preguntas.add(new Pregunta("Calendario",2,"",R.drawable.anteayer,"Anteayer","Abril","Domingo","Noviembre","Anteayer"));
+        preguntas.add(new Pregunta("Calendario",3,"",R.drawable.septiembre,"Anteayer","hijo","Mañana","Septiembre","Septiembre"));
+        preguntas.add(new Pregunta("Calendario",4,"",R.drawable.lunes,"Lunes","Anteayer","Mañana","Martes","Lunes"));
         return preguntas;
 
     }
@@ -134,10 +134,10 @@ public class FragmentAprender extends Fragment {
 
     public ArrayList<Pregunta> initPreguntasTransporte(){
         preguntas.clear();
-        preguntas.add(new Pregunta("Transporte",1,"",1,"papa","dos","dosmil","cuatro","papa"));
-        preguntas.add(new Pregunta("Transporte",2,"",1,"hola","seis","mama","ocho","mama"));
-        preguntas.add(new Pregunta("Transporte",3,"",1,"nueve","hijo","once","doce","hijo"));
-        preguntas.add(new Pregunta("Transporte",4,"",1,"trece","catorce","quince","dieciseis","quince"));
+        preguntas.add(new Pregunta("Transporte",1,"",1,"Bicicleta","Micro","Avión","Auto","Micro"));
+        preguntas.add(new Pregunta("Transporte",2,"",1,"Motocicleta","Auto","Micro","Tren","Tren"));
+        preguntas.add(new Pregunta("Transporte",3,"",1,"Auto","Caballo","Tren","Avión","Auto"));
+        preguntas.add(new Pregunta("Transporte",4,"",1,"Micro","Barco","Motocicleta","Caballo","Barco"));
         return preguntas;
 
     }

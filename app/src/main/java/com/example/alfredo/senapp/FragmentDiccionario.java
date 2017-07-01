@@ -42,7 +42,7 @@ public class FragmentDiccionario extends Fragment implements View.OnClickListene
 
         searchView = (SearchView)layout.findViewById(R.id.barraBusqueda);
         lista = (ListView) layout.findViewById(R.id.list1);
-
+        //lista.setDivider(null);
 
         adaptador = new Adapter(context, palabras);
         lista.setAdapter(adaptador);

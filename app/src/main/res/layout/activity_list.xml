@@ -18,12 +18,35 @@
         android:background="#7B1FA2"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
+    <TextView
+        android:text="Pequeña descripcion de la palabra, es decir, como se debe realizar el gesto."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/textDescPalabra"
+
+        android:textSize="20sp"
+        android:layout_below="@+id/imageClick"
+        android:layout_alignStart="@+id/textCatPalabra" />
+
+    <TextView
+        android:text="Categoria palabra: None"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar1"
+        android:textColor="#8A2ADA"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="36dp"
+        android:id="@+id/textCatPalabra"
+        android:textSize="22sp" />
+
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         app:srcCompat="@drawable/bike"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="172dp"
-        android:id="@+id/imageClick" />
+        android:layout_marginTop="25dp"
+        android:id="@+id/imageClick"
+        android:layout_below="@+id/textCatPalabra"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
