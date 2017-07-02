@@ -14,9 +14,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import estructura.Cuestionario;
 
 public class testQuiz extends AppCompatActivity {
+
+    //firebase
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference();
+    DatabaseReference mensajeRef = ref.child("mensaje");
 
     private int contadorTimer = 15;
     Thread t;
@@ -42,6 +53,9 @@ public class testQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_test_quiz);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mensajeRef.setValue("400");
+        System.out.println("------ firebase "+mensajeRef);
 
         mpWin = MediaPlayer.create(this, R.raw.win);
         mpFail = MediaPlayer.create(this, R.raw.fail);
@@ -159,6 +173,20 @@ public class testQuiz extends AppCompatActivity {
             }
         });
 
+        mensajeRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                System.out.println("------value "+value);
+                textPuntaje.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         /**
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -203,7 +231,8 @@ public class testQuiz extends AppCompatActivity {
     public void actualizarPuntaje(int punto){
         System.out.println("num pregunta -> "+numPregunta);
         System.out.println("puntaje ---> "+puntaje);
-        textPuntaje.setText("Puntaje: "+puntaje);
+        //textPuntaje.setText("Puntaje: "+puntaje);
+
     }
 
 
