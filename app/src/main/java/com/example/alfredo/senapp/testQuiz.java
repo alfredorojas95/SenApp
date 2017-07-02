@@ -27,7 +27,7 @@ public class testQuiz extends AppCompatActivity {
     //firebase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
-    DatabaseReference mensajeRef = ref.child("mensaje");
+    DatabaseReference mensajeRef = ref.child("puntaje");
 
     private int contadorTimer = 15;
     Thread t;
@@ -46,6 +46,7 @@ public class testQuiz extends AppCompatActivity {
 
     private String respuesta;
     private int puntaje = 0;
+    private int putajeMaximo = 0;
     private int numPregunta = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +55,13 @@ public class testQuiz extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mensajeRef.setValue("400");
-        System.out.println("------ firebase "+mensajeRef);
-
         mpWin = MediaPlayer.create(this, R.raw.win);
         mpFail = MediaPlayer.create(this, R.raw.fail);
 
         imagen = (ImageView)findViewById(R.id.gifQuiz);
         textPregunta = (TextView)findViewById(R.id.descripcion);
         textPuntaje = (TextView)findViewById(R.id.score);
+
         //textTimer = (TextView)findViewById(R.id.timer);
         opc1 = (Button)findViewById(R.id.btnOpt1);
         opc2 = (Button)findViewById(R.id.btnOpt2);
@@ -81,7 +80,7 @@ public class testQuiz extends AppCompatActivity {
                 if(numPregunta<cuestionario.getLargo()){
                     if(opc1.getText() == respuesta){
                         mpWin.start();//sonido
-                        puntaje += 1;//sumar puntaje
+                        puntaje += 100;//sumar puntaje
                         actualizarPuntaje(puntaje);
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
@@ -106,7 +105,7 @@ public class testQuiz extends AppCompatActivity {
                 if(numPregunta<cuestionario.getLargo()){
                     if(opc2.getText() == respuesta){
                         mpWin.start();
-                        puntaje += 1;
+                        puntaje += 100;
                         actualizarPuntaje(puntaje);
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
@@ -130,7 +129,7 @@ public class testQuiz extends AppCompatActivity {
                 if(numPregunta<cuestionario.getLargo()){
                     if(opc3.getText() == respuesta){
                         mpWin.start();
-                        puntaje += 1;
+                        puntaje += 100;
                         actualizarPuntaje(puntaje);
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
@@ -156,7 +155,7 @@ public class testQuiz extends AppCompatActivity {
                 if(numPregunta<cuestionario.getLargo()){
                     if(opc4.getText() == respuesta){
                         mpWin.start();
-                        puntaje += 1;
+                        puntaje += 100;
                         actualizarPuntaje(puntaje);
                         Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
@@ -177,8 +176,19 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
+
+                if(Integer.parseInt(value)!=0){
+                    putajeMaximo = Integer.parseInt(value);
+                    textPuntaje.setText("puntaje = 0");
+                }
+                if(numPregunta==4){
+                    if(puntaje>putajeMaximo){
+                        mensajeRef.setValue(""+puntaje);
+                    }
+                }
+
                 System.out.println("------value "+value);
-                textPuntaje.setText(value);
+                textPuntaje.setText("Puntaje: "+puntaje);
             }
 
             @Override
@@ -231,6 +241,7 @@ public class testQuiz extends AppCompatActivity {
     public void actualizarPuntaje(int punto){
         System.out.println("num pregunta -> "+numPregunta);
         System.out.println("puntaje ---> "+puntaje);
+        mensajeRef.setValue(""+puntaje);
         //textPuntaje.setText("Puntaje: "+puntaje);
 
     }
