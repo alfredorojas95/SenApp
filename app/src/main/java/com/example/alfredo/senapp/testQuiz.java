@@ -251,32 +251,14 @@ public class testQuiz extends AppCompatActivity {
         if(puntaje>putajeMaximo){
             mensajeRef.setValue(""+puntaje);
         }
-
-
-        //textPuntaje.setText("Puntaje: "+puntaje);
-
+        textPuntaje.setText("Puntaje: "+puntaje);
     }
 
 
     private void goQuiz(){
-        //setContentView(R.layout.fragment_fragment_aprender);
-
-        /*
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
-        /*
-        Fragment frg = null;
-        frg = getSupportFragmentManager().findFragmentById(R.id.fragment_quiz);
-        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.detach(frg);
-        ft.attach(frg);
-        ft.commit();*/
-
         Intent intent = new Intent(this , MainActivity.class);
         intent.putExtra("accion", "aprender");
         startActivity(intent);
-
-
     }
 
     public void goDialog(){
@@ -292,11 +274,11 @@ public class testQuiz extends AppCompatActivity {
             wText.setText("Inténtalo nuevamente");
             wTextPuntaje.setText("Puntaje: "+puntaje+"/"+cuestionario.getLargo());
             wImage.setImageResource(R.drawable.lose);
-        } else if(puntaje==1){
+        } else if(puntaje==100){
             wText.setText("Aún debes practicar!");
             wTextPuntaje.setText("Puntaje: "+puntaje+"/"+cuestionario.getLargo());
             wImage.setImageResource(R.drawable.losertest);
-        } else if(puntaje>1 && puntaje < cuestionario.getLargo()){
+        } else if(puntaje>100 && puntaje < 400){
             wText.setText("Puedes mejorar!");
             wTextPuntaje.setText("Puntaje: "+puntaje+"/"+cuestionario.getLargo());
             wImage.setImageResource(R.drawable.winmedal);
@@ -309,7 +291,7 @@ public class testQuiz extends AppCompatActivity {
         wBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(testQuiz.this, "go quiz activity", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(testQuiz.this, "go quiz activity", Toast.LENGTH_SHORT).show();
                 //volver a quiz
                 sayBye();
             }

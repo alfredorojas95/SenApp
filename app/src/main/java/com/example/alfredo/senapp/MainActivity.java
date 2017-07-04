@@ -85,8 +85,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(accion!=null && accion.equals("aprender")){
             goToQuiz();
         }else{
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
+            /*
+            en caso de querer a otro fragment
+             */
+            /* FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit(); */
+
+            goToQuiz();
         }
 
     }
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void goToQuiz() {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
+        this.setTitle("Quiz");
     }
 
     @Override
@@ -132,14 +138,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
          if (id == R.id.nav_bienvenida) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
-            this.setTitle("Welcome");
+            this.setTitle("Puntajes");
         }else if (id == R.id.nav_diccionario) {
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentDiccionario()).commit();
             this.setTitle("Diccionario");
         } else if (id == R.id.nav_aprender) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
-            this.setTitle("Practica");
+            this.setTitle("Quiz");
         } else if (id == R.id.nav_salir) {
             //logOut();
         }

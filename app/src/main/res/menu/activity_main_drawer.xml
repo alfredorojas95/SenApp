@@ -5,7 +5,7 @@
         <item
             android:id="@+id/nav_bienvenida"
             android:icon="@drawable/welcome"
-            android:title="Welcome" />
+            android:title="Resumen Puntaje" />
         <item
             android:id="@+id/nav_diccionario"
             android:icon="@drawable/lupa"
