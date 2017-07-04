@@ -1,10 +1,13 @@
 package com.example.alfredo.senapp;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,7 +30,7 @@ public class testQuiz extends AppCompatActivity {
     //firebase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
-    DatabaseReference mensajeRef = ref.child("puntaje");
+    DatabaseReference mensajeRef ;
 
     private int contadorTimer = 15;
     Thread t;
@@ -72,6 +75,8 @@ public class testQuiz extends AppCompatActivity {
         System.out.println("------> "+cuestionario.getCategoria(numPregunta));
         this.setTitle(cuestionario.getCategoria(numPregunta));
         actualizarPregunta();
+
+        mensajeRef= MainActivity.user.child("puntaje").child(cuestionario.getCategoria(numPregunta));
 
         //btn 1
         opc1.setOnClickListener(new View.OnClickListener(){
@@ -149,7 +154,7 @@ public class testQuiz extends AppCompatActivity {
         });
 
         //btn 4
-        opc4.setOnClickListener(new View.OnClickListener(){
+        opc4.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 if(numPregunta<cuestionario.getLargo()){
@@ -176,7 +181,9 @@ public class testQuiz extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-
+                if(value == null){
+                    value = "0";
+                }
                 if(Integer.parseInt(value)!=0){
                     putajeMaximo = Integer.parseInt(value);
                     textPuntaje.setText("puntaje = 0");
@@ -241,7 +248,11 @@ public class testQuiz extends AppCompatActivity {
     public void actualizarPuntaje(int punto){
         System.out.println("num pregunta -> "+numPregunta);
         System.out.println("puntaje ---> "+puntaje);
-        mensajeRef.setValue(""+puntaje);
+        if(puntaje>putajeMaximo){
+            mensajeRef.setValue(""+puntaje);
+        }
+
+
         //textPuntaje.setText("Puntaje: "+puntaje);
 
     }
@@ -250,9 +261,22 @@ public class testQuiz extends AppCompatActivity {
     private void goQuiz(){
         //setContentView(R.layout.fragment_fragment_aprender);
 
+        /*
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
-        this.setTitle("Quiz");
+        /*
+        Fragment frg = null;
+        frg = getSupportFragmentManager().findFragmentById(R.id.fragment_quiz);
+        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.detach(frg);
+        ft.attach(frg);
+        ft.commit();*/
+
+        Intent intent = new Intent(this , MainActivity.class);
+        intent.putExtra("accion", "aprender");
+        startActivity(intent);
+
+
     }
 
     public void goDialog(){
@@ -287,6 +311,7 @@ public class testQuiz extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(testQuiz.this, "go quiz activity", Toast.LENGTH_SHORT).show();
                 //volver a quiz
+                sayBye();
             }
         });
 

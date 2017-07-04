@@ -33,21 +33,31 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-public class MainActivity extends AppCompatActivity
+import java.util.HashMap;
 
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
 
-        implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
-
+    public static MainActivity main;
     //login silencioso
     private GoogleApiClient googleApiClient;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference();
+    public static DatabaseReference user ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        main = this;
         //login silencioso
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
@@ -65,10 +75,25 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
-        this.setTitle("Alfredo");
+        String accion = null;
+        try {
+            accion = (String)getIntent().getExtras().get("accion");
+        }catch (Exception e){
 
+        }
+
+        if(accion!=null && accion.equals("aprender")){
+            goToQuiz();
+        }else{
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
+        }
+
+    }
+
+    public void goToQuiz() {
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentAprender()).commit();
     }
 
     @Override
@@ -153,10 +178,32 @@ public class MainActivity extends AppCompatActivity
     private void handleSignInResult(GoogleSignInResult result) {
         if(result.isSuccess()){
             GoogleSignInAccount account = result.getSignInAccount();
-            String nombre = account.getDisplayName();
-            String mail = account.getEmail();
-            String id = account.getId();
+
+            final String nombre = account.getDisplayName();
+            final String mail = account.getEmail();
+            final String id = account.getId();
             System.out.println(nombre +" ------> "+mail+" ------> "+id);
+
+            user = ref.child("users").child(id);
+
+            user.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.getValue() == null){
+
+                        HashMap<String,Object> datos= new HashMap<String, Object>();
+                        datos.put("nombre", nombre);
+                        datos.put("email", mail);
+                        user.setValue(datos);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
 
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             View hView =  navigationView.getHeaderView(0);

@@ -9,12 +9,22 @@ import java.io.Serializable;
 public class Palabra implements Serializable {
     private int imagen;
     private String nombre;
+    private String categoria;
     private String descripcion;
 
-    public Palabra(int imagen, String nombre, String descripcion){
+    public Palabra(int imagen, String nombre, String categoria, String descripcion){
         this.imagen = imagen;
         this.nombre=nombre;
+        this.categoria = categoria;
         this.descripcion = descripcion;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public int getImagen() {

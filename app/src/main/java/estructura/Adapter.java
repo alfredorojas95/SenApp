@@ -57,7 +57,7 @@ public class Adapter extends BaseAdapter implements Filterable{
                 convertView = layoutItem.inflate(R.layout.row,null);
             }
 
-            //Elementos de XML de layout "row"
+            //Elementos de XML de layout ""
             ImageView images = (ImageView) convertView.findViewById(R.id.icon);
             TextView titulo = (TextView) convertView.findViewById(R.id.nombrePalabra);
             TextView descripcion = (TextView) convertView.findViewById(R.id.descripcionPalabra);
@@ -67,7 +67,8 @@ public class Adapter extends BaseAdapter implements Filterable{
             //set contenido lista
             images.setImageResource(p.getImagen());
             titulo.setText(p.getNombre());
-            descripcion.setText(p.getDescripcion());
+
+            descripcion.setText(p.getCategoria());
             return convertView;
         }
 
@@ -92,9 +93,10 @@ public class Adapter extends BaseAdapter implements Filterable{
                 for(int i=0; i < listaFiltro.size(); i++){
                     if(listaFiltro.get(i).getNombre().toUpperCase().contains(constraint)){
                         String nombreP = listaFiltro.get(i).getNombre();
+                        String categoriaP = listaFiltro.get(i).getCategoria();
                         String descripcionP = listaFiltro.get(i).getDescripcion();
                         int imgP = listaFiltro.get(i).getImagen();
-                        Palabra p = new Palabra(imgP, nombreP, descripcionP);
+                        Palabra p = new Palabra(imgP, nombreP, categoriaP, descripcionP);
                         filtrado.add(p);
                     }
                 }

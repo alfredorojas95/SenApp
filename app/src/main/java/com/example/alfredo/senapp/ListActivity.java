@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import estructura.Palabra;
 
@@ -12,6 +15,7 @@ public class ListActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     ImageView imageView;
+    TextView textDescripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,12 @@ public class ListActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar1);
         imageView = (ImageView) findViewById(R.id.imageClick);
+        textDescripcion = (TextView)findViewById(R.id.textDescPalabra);
         Palabra p = (Palabra)getIntent().getExtras().getSerializable("itemPalabraDiccionario");
         mToolbar.setTitle(p.getNombre());
         imageView.setImageResource(p.getImagen());
+        textDescripcion.setText(p.getDescripcion());
+
 
         /**Bundle bundle = getIntent().getExtras();
         if(bundle!=null) {
