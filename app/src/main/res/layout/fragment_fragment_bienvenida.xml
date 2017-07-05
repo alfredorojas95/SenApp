@@ -18,7 +18,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/profesiones"
+        app:srcCompat="@drawable/professionjobgray"
         android:id="@+id/btn_profesion"
         android:scaleType="fitXY"
         android:background="@null"
@@ -37,7 +37,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/calendar"
+        app:srcCompat="@drawable/calendargray"
         android:scaleType="fitXY"
         android:id="@+id/btn_calendar"
         android:background="@null"
@@ -67,7 +67,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/feets"
+        app:srcCompat="@drawable/feetsgray"
         android:id="@+id/btn_intro"
         android:scaleType="fitXY"
         android:background="@null"
@@ -78,7 +78,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/family"
+        app:srcCompat="@drawable/familygray"
         android:scaleType="fitXY"
         android:background="@null"
         android:id="@+id/btn_family"
@@ -98,7 +98,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/bike"
+        app:srcCompat="@drawable/bikegray"
         android:scaleType="fitXY"
         android:background="@null"
         android:id="@+id/btn_transport"

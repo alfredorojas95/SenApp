@@ -21,7 +21,7 @@
     <ImageButton
         android:layout_width="140px"
         android:layout_height="140px"
-        app:srcCompat="@drawable/profesiones"
+        app:srcCompat="@drawable/profesiont"
         android:id="@+id/btn_profesion"
         android:scaleType="fitXY"
         android:background="@null"

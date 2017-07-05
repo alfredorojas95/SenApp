@@ -15,6 +15,7 @@ public class ListActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     ImageView imageView;
+    TextView categoria;
     TextView textDescripcion;
 
     @Override
@@ -24,9 +25,12 @@ public class ListActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar1);
         imageView = (ImageView) findViewById(R.id.imageClick);
+        categoria = (TextView) findViewById(R.id.textCatPalabra);
         textDescripcion = (TextView)findViewById(R.id.textDescPalabra);
+
         Palabra p = (Palabra)getIntent().getExtras().getSerializable("itemPalabraDiccionario");
         mToolbar.setTitle(p.getNombre());
+        categoria.setText("Categoría: "+p.getCategoria());
         imageView.setImageResource(p.getImagen());
         textDescripcion.setText(p.getDescripcion());
 

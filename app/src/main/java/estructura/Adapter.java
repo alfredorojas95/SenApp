@@ -67,7 +67,6 @@ public class Adapter extends BaseAdapter implements Filterable{
             //set contenido lista
             images.setImageResource(p.getImagen());
             titulo.setText(p.getNombre());
-
             descripcion.setText(p.getCategoria());
             return convertView;
         }
