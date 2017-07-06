@@ -93,7 +93,7 @@ public class testQuiz extends AppCompatActivity {
                         mpWin.start();//sonido
                         puntaje += 100;//sumar puntaje
                         actualizarPuntaje(puntaje);
-                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
@@ -119,7 +119,7 @@ public class testQuiz extends AppCompatActivity {
                         mpWin.start();
                         puntaje += 100;
                         actualizarPuntaje(puntaje);
-                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
@@ -144,7 +144,7 @@ public class testQuiz extends AppCompatActivity {
                         mpWin.start();
                         puntaje += 100;
                         actualizarPuntaje(puntaje);
-                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
@@ -171,7 +171,7 @@ public class testQuiz extends AppCompatActivity {
                         mpWin.start();
                         puntaje += 100;
                         actualizarPuntaje(puntaje);
-                        Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(testQuiz.this, "Correcto", Toast.LENGTH_SHORT).show();
                     } else {
                         mpFail.start();
                         Toast.makeText(testQuiz.this,respuesta, Toast.LENGTH_SHORT).show();
