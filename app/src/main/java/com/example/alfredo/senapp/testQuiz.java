@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,10 +34,12 @@ public class testQuiz extends AppCompatActivity {
     DatabaseReference mensajeRef ;
 
     private int contadorTimer = 15;
+    private int progress = 0;
     Thread t;
     MediaPlayer mpWin;
     MediaPlayer mpFail;
 
+    ProgressBar progressBar;
     private Cuestionario cuestionario;
     private ImageView imagen;
     private TextView textPregunta;
@@ -58,11 +61,14 @@ public class testQuiz extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        progressBar = (ProgressBar)findViewById(R.id.progressBar3);
+        //progressBar.setBackgroundColor(Color.parseColor("#8A2ADA"));
+
         mpWin = MediaPlayer.create(this, R.raw.win);
-        mpFail = MediaPlayer.create(this, R.raw.fail);
+        mpFail = MediaPlayer.create(this, R.raw.cuek);
 
         imagen = (ImageView)findViewById(R.id.gifQuiz);
-        textPregunta = (TextView)findViewById(R.id.descripcion);
+        //textPregunta = (TextView)findViewById(R.id.descripcion);
         textPuntaje = (TextView)findViewById(R.id.score);
 
         //textTimer = (TextView)findViewById(R.id.timer);
@@ -93,6 +99,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
                     numPregunta++;
+                    getBarraProgreso();
                     if(numPregunta<4){
                         actualizarPregunta();
                     }else {
@@ -118,6 +125,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
                     numPregunta++;
+                    getBarraProgreso();
                     if(numPregunta<4){
                         actualizarPregunta();
                     }else {
@@ -142,6 +150,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this, respuesta, Toast.LENGTH_SHORT).show();
                     }
                     numPregunta++;
+                    getBarraProgreso();
                     if(numPregunta<4){
                         actualizarPregunta();
                     }else {
@@ -168,6 +177,7 @@ public class testQuiz extends AppCompatActivity {
                         Toast.makeText(testQuiz.this,respuesta, Toast.LENGTH_SHORT).show();
                     }
                     numPregunta++;
+                    getBarraProgreso();
                     if(numPregunta<4){
                         actualizarPregunta();
                     } else {
@@ -217,7 +227,7 @@ public class testQuiz extends AppCompatActivity {
 
     public void actualizarPregunta(){
         imagen.setImageResource(cuestionario.getImagen(numPregunta));
-        textPregunta.setText("Pregunta "+(numPregunta+1) +" / "+cuestionario.getLargo());
+        //textPregunta.setText("Pregunta "+(numPregunta+1) +" / "+cuestionario.getLargo());
         opc1.setText(cuestionario.getAlternativa1(numPregunta));
         opc2.setText(cuestionario.getAlternativa2(numPregunta));
         opc3.setText(cuestionario.getAlternativa3(numPregunta));
@@ -226,6 +236,10 @@ public class testQuiz extends AppCompatActivity {
         respuesta = cuestionario.getRespuestaCorrecta(numPregunta);
     }
 
+    public void getBarraProgreso(){
+        progress += 25;
+        progressBar.setProgress(progress);
+    }
 
     public void startTimer(){
         contadorTimer = 15;

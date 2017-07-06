@@ -5,7 +5,7 @@ package com.example.alfredo.senapp;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.support.v7.app.AlertDialog;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,6 +64,18 @@ public class FragmentBienvenida extends Fragment {
         txtPuntajeProfesion = (TextView) view.findViewById(R.id.text_puntaje_profesion);
         txtPuntajeFamilia = (TextView) view.findViewById(R.id.text_puntaje_familia);
         txtPuntajeTransporte = (TextView) view.findViewById(R.id.text_puntaje_reansporte);
+
+        //btn intro
+        btnIntro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                puntajeIntro.setValue(""+0);
+                btnIntro.setImageResource(R.drawable.feetsgray);
+                txtPuntajeIntro.setText("0/400");
+                Toast.makeText(getActivity(), "Puntaje Restablecido", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         //btn go quiz
         Button btn = (Button) view.findViewById(R.id.btn_goQuiz);
@@ -208,7 +221,11 @@ public class FragmentBienvenida extends Fragment {
             public void onClick(View v) {
                 MainActivity.main.goToQuiz();
             }
-        });
+        }
+
+
+
+    );
         return view;
     }
 

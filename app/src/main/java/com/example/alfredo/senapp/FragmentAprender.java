@@ -117,7 +117,7 @@ public class FragmentAprender extends Fragment {
         preguntas.add(new Pregunta("Profesión",1,"",R.drawable.profesor,"Profesor","Matrona","Abogado","Diputado","Profesor"));
         preguntas.add(new Pregunta("Profesión",2,"",R.drawable.ingeniero,"Arbitro","Enfermero","Ingeniero","Pastor","Ingeniero"));
         preguntas.add(new Pregunta("Profesión",3,"",R.drawable.arbitro,"Mecánico","Arbitro","once","doce","Arbitro"));
-        preguntas.add(new Pregunta("Profesión",4,"",R.drawable.abogado,"trece","Abogado","Enfermero","Profesor","Abogado"));
+        preguntas.add(new Pregunta("Profesión",4,"",R.drawable.abogado,"Mecánico","Abogado","Enfermero","Profesor","Abogado"));
         return preguntas;
 
     }
@@ -127,7 +127,7 @@ public class FragmentAprender extends Fragment {
         preguntas.add(new Pregunta("Familia",1,"Pregunta N°1",R.drawable.hijo,"Papá","Hijo","Abuelo","Mamá","Hijo"));
         preguntas.add(new Pregunta("Familia",2,"Pregunta N°2",R.drawable.mama,"Bebé","Abuela","Mama","Padrastro","Mamá"));
         preguntas.add(new Pregunta("Familia",3,"Pregunta N°3",R.drawable.hermano,"Papá","hijo","Hermano","Nieto","Hermano"));
-        preguntas.add(new Pregunta("Familia",4,"Pregunta N°4",R.drawable.abuelo,"Nieto","Papá","Abuel","Mamá","Abuelo"));
+        preguntas.add(new Pregunta("Familia",4,"Pregunta N°4",R.drawable.abuelo,"Nieto","Papá","Abuelo","Mamá","Abuelo"));
         return preguntas;
 
     }

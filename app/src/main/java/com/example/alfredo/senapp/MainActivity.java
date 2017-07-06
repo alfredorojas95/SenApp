@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
          if (id == R.id.nav_bienvenida) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentBienvenida()).commit();
-            this.setTitle("Puntajes Quiz");
+            this.setTitle("Resumen puntajes Quiz");
         }else if (id == R.id.nav_diccionario) {
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.content_main, new FragmentDiccionario()).commit();
