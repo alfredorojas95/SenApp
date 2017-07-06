@@ -5,9 +5,11 @@
     android:id="@+id/content_test_quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlanco"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="15dp"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.alfredo.senapp.testQuiz"
@@ -22,32 +24,34 @@
         android:orientation="vertical"
         android:weightSum="1">
 
+        <TextView
+            android:text="Puntaje: 0"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:id="@+id/score"
+            android:textColor="@color/colorMorado"
+            android:textStyle="bold"
+            android:paddingBottom="2dp"
+            android:layout_weight="0.14" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="144dp"
+            android:layout_height="160dp"
+            android:background="@color/colorBlanco"
+
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:src="@drawable/abrazar"
+            android:id="@+id/gifQuiz" />
+
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar3"
             android:max="100"
-            android:progressTint="#8A2ADA"
+            android:progressTint="@color/colorMorado"
             android:layout_weight="0.00" />
-
-        <TextView
-            android:text="Puntaje: 0"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:id="@+id/score"
-            android:paddingBottom="5dp"
-            android:layout_weight="0.08" />
-
-        <pl.droidsonroids.gif.GifImageView
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:src="@drawable/abrazar"
-            android:id="@+id/gifQuiz" />
 
         <Button
             android:text="Opcion1"
@@ -56,9 +60,9 @@
             android:layout_marginTop="61dp"
             android:id="@+id/btnOpt1"
             android:layout_below="@+id/textView"
-            android:background="@color/colorMorado"
-            android:textColor="@color/colorBlanco"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/colorMorado"
+            android:background="@drawable/my_button_bg"
             android:layout_marginBottom="5dp"/>
 
         <Button
@@ -67,8 +71,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnOpt2"
             android:layout_above="@+id/btnOpt3"
-            android:background="@color/colorMorado"
-            android:textColor="@color/colorBlanco"
+            android:textColor="@color/colorMorado"
+            android:background="@drawable/my_button_bg"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="5dp"/>
 
@@ -78,8 +82,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnOpt3"
             android:layout_above="@+id/btnOpt4"
-            android:background="@color/colorMorado"
-            android:textColor="@color/colorBlanco"
+            android:textColor="@color/colorMorado"
+            android:background="@drawable/my_button_bg"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="5dp"/>
 
@@ -89,8 +93,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnOpt4"
             android:layout_marginBottom="5dp"
-            android:background="@color/colorMorado"
-            android:textColor="@color/colorBlanco"
+            android:textColor="@color/colorMorado"
+            android:background="@drawable/my_button_bg"
             android:layout_alignParentBottom="true"
 
             android:layout_alignParentStart="true" />

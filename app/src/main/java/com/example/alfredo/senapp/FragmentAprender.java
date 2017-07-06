@@ -96,7 +96,7 @@ public class FragmentAprender extends Fragment {
     public ArrayList<Pregunta> initPreguntasIntro(){
         preguntas.clear();
         preguntas.add(new Pregunta("Intro",1,"Pregunta N°1",R.drawable.buenosdias,"Buenos días","Abrazar","Hola","Frío","Buenos días"));
-        preguntas.add(new Pregunta("Intro",2,"Pregunta N°2",R.drawable.salir,"Abuelo","Salir","Adios","Mamá","Salir"));
+        preguntas.add(new Pregunta("Intro",2,"Pregunta N°2",R.drawable.casa,"Abuelo","Casa","Adios","Mamá","Casa"));
         preguntas.add(new Pregunta("Intro",3,"Pregunta N°3",R.drawable.ayer,"Ayer","Aburrido","Rápido","Noche","Ayer"));
         preguntas.add(new Pregunta("Intro",3,"Pregunta N°4",R.drawable.chao,"Extrañar","Acompañar","Chao","Deber","Chao"));
         return preguntas;
